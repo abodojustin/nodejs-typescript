@@ -6,7 +6,7 @@ import mainRouter from './src/routes/index';
 import {mongoConnector} from "./src/database/connectors/mongoDB";
 
 const app = express();
-const mongoLink = process.env.MONGO || 'mongodb://localhost:27017/your-data-base';
+const mongoLink = process.env.MONGO || 'mongodb+srv://Evoluscan:IxHpbkrmazvmkvf8@cluster0.4al0yej.mongodb.net/?retryWrites=true&w=majority';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 app.use(helmet());
 app.use(cors());
-app.use(mainRouter);
+app.use('/api', mainRouter);
 
 
 mongoConnector(mongoLink);
