@@ -5,7 +5,6 @@ const Zone_1 = require("../models/Zone");
 async function createZone(data) {
     const zone = new Zone_1.ZoneModel(data);
     const zoneSaved = await zone.save();
-    console.log({ zoneSaved });
     if (zoneSaved) {
         return { status: 201, message: "Zone crée avec succès" };
     }

@@ -30,6 +30,7 @@ const express_1 = __importDefault(require("express"));
 const dotenv = __importStar(require("dotenv"));
 const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
+const body_parser_1 = __importDefault(require("body-parser"));
 const index_1 = __importDefault(require("./src/routes/index"));
 const mongoDB_1 = require("./src/database/connectors/mongoDB");
 const app = (0, express_1.default)();
@@ -41,6 +42,8 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
+app.use(body_parser_1.default.json({ limit: '50mb' })); // for parsing application/json
+app.use(body_parser_1.default.urlencoded({ extended: true, limit: '50mb' }));
 app.use((0, helmet_1.default)());
 app.use((0, cors_1.default)());
 app.use('/api', index_1.default);

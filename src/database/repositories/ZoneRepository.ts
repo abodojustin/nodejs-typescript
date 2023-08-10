@@ -6,7 +6,6 @@ export async function createZone(data: IZone){
     const zone = new ZoneModel(data);
 
     const zoneSaved = await zone.save();
-    console.log({zoneSaved})
 
     if(zoneSaved) {
 

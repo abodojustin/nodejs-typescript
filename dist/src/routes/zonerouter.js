@@ -8,7 +8,6 @@ const ZoneRepository_1 = require("../database/repositories/ZoneRepository");
 const router = express_1.default.Router();
 router.post("/create", async (req, res) => {
     const z = await (0, ZoneRepository_1.createZone)(req.body);
-    console.log(req.body);
     if ((z === null || z === void 0 ? void 0 : z.status) && (z === null || z === void 0 ? void 0 : z.status) === 400) {
         res.status(400).json({ success: false, message: "une erreur s'est produite" });
     }
@@ -16,6 +15,7 @@ router.post("/create", async (req, res) => {
         res.status(500).json({ success: false });
     }
     else {
+        console.log(req.body);
         res.status(200).json({ success: true, message: "Zone crée avec succès" });
     }
 });

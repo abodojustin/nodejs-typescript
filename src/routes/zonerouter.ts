@@ -5,8 +5,7 @@ const router = express.Router();
 
 router.post("/create", async (req, res) => {
     const z = await createZone(req.body);
-    console.log(req.body)
-
+    
   if (z?.status && z?.status === 400) {
 
     res.status(400).json({ success: false, message: "une erreur s'est produite" });
@@ -16,6 +15,7 @@ router.post("/create", async (req, res) => {
     res.status(500).json({ success: false });
 
   } else {
+    console.log(req.body)
 
     res.status(200).json({ success: true, message: "Zone crée avec succès" });
 

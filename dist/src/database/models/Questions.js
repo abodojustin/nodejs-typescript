@@ -6,7 +6,7 @@ exports.DOCUMENT_NAME = "Questions";
 exports.COLLECTION_NAME = "questions";
 const schema = new mongoose_1.Schema({
     question_name: String,
-    theme_id: String,
+    // theme_id: String,
     color_id: String,
 });
 exports.QuestionsModel = (0, mongoose_1.model)(exports.DOCUMENT_NAME, schema, exports.COLLECTION_NAME);

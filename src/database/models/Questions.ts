@@ -6,7 +6,7 @@ export const COLLECTION_NAME = "questions";
 
 const schema = new Schema({
   question_name: String,
-  theme_id: String,
+  // theme_id: String,
   color_id: String,
 });
 

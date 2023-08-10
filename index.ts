@@ -2,6 +2,7 @@ import express from "express";
 import * as dotenv from 'dotenv';
 import helmet from 'helmet';
 import cors from 'cors';
+import bodyParser from "body-parser";
 import mainRouter from './src/routes/index';
 import {mongoConnector} from "./src/database/connectors/mongoDB";
 
@@ -16,6 +17,10 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
+
+app.use(bodyParser.json({limit: '50mb'})); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+
 app.use(helmet());
 app.use(cors());
 app.use('/api', mainRouter);
