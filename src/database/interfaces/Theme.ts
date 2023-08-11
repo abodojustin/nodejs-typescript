@@ -1,5 +1,5 @@
 export interface ITheme {
     theme_name: string,
-    id_question: string,
-    id_menu: string
+    questions: Array<Object>,
+    menus: Array<Object> // Chaque thème peut se retrouver dans plusieurs menus
 };

@@ -1,32 +1,32 @@
 import express from "express";
-import { createZone, getZones } from "../database/repositories/ZoneRepository";
+import { createRole, getRoles } from "../database/repositories/RoleRepository";
 
 const router = express.Router();
 
 router.post("/create", async (req, res) => {
-    const z = await createZone(req.body);
+    const role = await createRole(req.body);
     
-  if (z?.status && z?.status === 400) {
+  if (role?.status && role?.status === 400) {
 
     res.status(400).json({ success: false, message: "une erreur s'est produite" });
 
-  } else if (z?.status && z?.status === 500) {
+  } else if (role?.status && role?.status === 500) {
 
     res.status(500).json({ success: false });
 
   } else {
 
-    res.status(200).json({ success: true, message: "Zone crée avec succès" });
+    res.status(200).json({ success: true, message: "role crée avec succès" });
 
   }
 });
 
 router.get("/getAll", async (req, res) => {
-    const zones = await getZones();
+    const roles = await getRoles();
 
-    if(zones){
+    if(roles){
 
-        res.status(200).json({ success: true, data: zones })
+        res.status(200).json({ success: true, data: roles })
 
     } else {
 

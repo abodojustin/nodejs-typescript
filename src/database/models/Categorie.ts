@@ -6,7 +6,7 @@ export const COLLECTION_NAME = "categories";
 
 const schema = new Schema({
   cat_name: String,
-  id_theme: String,
+  theme: Object,
 });
 
 export const CategorieModel = model<ICategorie>(

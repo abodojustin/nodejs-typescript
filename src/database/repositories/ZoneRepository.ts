@@ -17,9 +17,3 @@ export async function createZone(data: IZone){
 export async function getZones() {
     return await ZoneModel.find({});
 }
-
-// export async function getZoneById(id: string) {
-//     return await ZoneModel.findById({ _id: id });
-// }
-
-// export async function .....

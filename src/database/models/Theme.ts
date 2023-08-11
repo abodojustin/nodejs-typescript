@@ -6,8 +6,14 @@ export const COLLECTION_NAME = "themes";
 
 const schema = new Schema({
   theme_name: String,
-  id_question: String,
-  id_menu: String,
+  questions: [{
+    type: Schema.Types.ObjectId,
+    ref: 'questions'
+  }],
+  menus: [{
+    type: Schema.Types.ObjectId,
+    ref: 'menus'
+  }],
 });
 
 export const ThemeModel = model<ITheme>(
